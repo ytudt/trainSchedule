@@ -1,6 +1,5 @@
 angular.module('index.router',['index.controller'])
 .config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider) {
-  console.log(111)
   $stateProvider
     .state('app',{
         url: '/',

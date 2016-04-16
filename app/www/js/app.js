@@ -1,1 +1,1 @@
-angular.module('trainApp',['ui.router','router']);
+angular.module('trainApp',['ui.router','router','common']);
