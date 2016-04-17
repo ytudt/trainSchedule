@@ -1,11 +1,34 @@
+<section id="trainNumber">
+    <h1>请输入火车信息</h1>
+  <form  id='trainNumber'>
+  <div>
+    <label for="">车次(必填)</label>
+    <input type="text" name="train">
+  </div>
+  <div>
+    <label for="">出发地</label>
+    <input type="text" name='from'>
+  </div>
+  <div>
+    <label for="">到达地</label>
+    <input type="text" name='to'>
+  </div>
+  <div>
+    <label for="">时间(必填)</label>
+    <input type="date" name='date'>
+  </div>
+     <button ng-click="submit()">提交</button>
+  </form>
+  <table>
+      <tr >
+        <th ng-repeat="item in result.data.info.head track by $index">{{item}}</th>
+        <!-- <th>{{result.data.info.head[1]}}</th> -->
+      </tr>
+       <tr ng-repeat="items in result.data.info.value track by $index">
+         <td ng-repeat="item in items track by $index">{{item}}</td>
+       </tr>
+  </table>
+</section>
 
-<h1>请输入火车信息</h1>
-<form  id='trainNumber'>
-  <label for="">车次<input type="text" name="train"></label>
-  <label for="">出发地<input type="text" name='from'></label>
-  <label for="">到达地<input type="text" name='to'></label>
-  <label for="">时间<input type="date" name='date'></label>
-   <button ng-click="submit()">提交</button>
-</form>
 
 

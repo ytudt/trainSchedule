@@ -1,0 +1,23 @@
+#trainNumber form div{
+ width: 240px;
+ // border: 1px solid #ccc;
+ height: 20px;
+ margin: 5px;
+}
+#trainNumber form div label {
+  display: inline-block;
+  width: 70px;
+  height: 20px;
+}
+#trainNumber form div input {
+ display: inline-block;
+ width: 140px;
+ height: 20px;
+ border: 1px solid #ccc;
+}
+ table th,
+ table td{
+  border:1px solid #ccc;
+}
+
+

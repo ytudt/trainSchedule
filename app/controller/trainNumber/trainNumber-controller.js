@@ -1,28 +1,22 @@
-angular.module('trainNumber.controller',['common'])
-.controller('TrainNumberController',function(CommonService,$scope){
+angular.module('trainNumber.controller',['common','getDetail'])
+.controller('TrainNumberController',function(CommonService,TrainNumberService,$scope){
   $scope.submit=function(){
      var trainNumber=document.querySelector('#trainNumber');
-     console.log(CommonService.serialize(trainNumber));
      var para=CommonService.serialize(trainNumber);
      var url=`http://apis.baidu.com/qunar/qunar_train_service/traindetail?version=1.0&`+para;
-       $.ajax({
-    // url:'http://apis.baidu.com/qunar/qunar_train_service/suggestsearch?version=1.0&train=G101&date=2016-04-20',
-     url:url,
-    type:'get',
-    dataType:'json',
-    // apikey:'b1a68b8784118e86d6eaa995c6848c78',
-    beforeSend: function(request) {
-      request.setRequestHeader("apikey", "b1a68b8784118e86d6eaa995c6848c78");
-    },
-    success:function(data){
-      console.log(data);
+       var promise = TrainNumberService.getDetail(url);
+       promise.then(function(result){
+        $scope.result=result;
+        // console.log(result.ret);
+        // console.log(result.data.extInfo);
+        console.log(result.data.info.head);
+        console.log(result.data.info.value);
 
-    },
-    error:function(){
-        console.log('error')
-    }
+       },function(){
 
+       }).finally(function(){
 
-  });
+       });
+
   }
 });
